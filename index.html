@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartHome</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/modal.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/duotone.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/brands.css" />
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>My Home</h1>
+    <div class="all-devices">
+      <i class="fa-solid fa-house"></i>
+      <span>Tất Cả Thiết Bị</span>
+      <span class="device-count">0 thiết bị</span>
+    </div>
+    <button class="add-btn" onclick="openAddRoomModal()">+</button>
+  </header>
+  <div class="rooms-box">
+    <!-- Phòng sẽ được tải động từ Firebase -->
+  </div>
+  <!-- Modal thêm phòng -->
+  <div id="addRoomModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddRoomModal()">×</span>
+      <h2>Thêm Phòng Mới</h2>
+      <form id="addRoomForm">
+        <label for="roomName">Tên Phòng:</label>
+        <input type="text" id="roomName" required>
+        <label>Chọn Biểu Tượng:</label>
+        <div class="icon-selection">
+          <label><input type="radio" name="roomIcon" value="fa-bed-front" checked><i
+              class="fa-solid fa-bed-front"></i></label>
+          <label><input type="radio" name="roomIcon" value="fa-couch"><i class="fa-solid fa-couch"></i></label>
+          <label><input type="radio" name="roomIcon" value="fa-book"><i class="fa-solid fa-book"></i></label>
+          <label><input type="radio" name="roomIcon" value="fa-lightbulb"><i class="fa-solid fa-lightbulb"></i></label>
+          <label><input type="radio" name="roomIcon" value="fa-bath"><i class="fa-solid fa-bath"></i></label>
+        </div>
+        <button type="submit">Thêm</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <div class="nav-bar">
+      <a href="#" class="active"><i class="fa-solid fa-house"></i></a>
+      <a href="#"><i class="fa-solid fa-cloud"></i></a>
+      <a href="#"><i class="fa-regular fa-heart"></i></a>
+      <a href="#"><i class="fa-solid fa-bell"></i></a>
+      <a href="#"><i class="fa-solid fa-gear"></i></a>
+    </div>
+  </footer>
+  <script src="./js/firebase.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* ========== Header ========== */
+header {
+    padding: 20px;
+    background-color: #721b9a;
+    color: #e0e0e0;
+    text-align: left;
+    position: relative;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.all-devices {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.all-devices i {
+    font-size: 20px;
+}
+
+.device-count {
+    color: #d3d3d3;
+}
+
+/* ========== Add Button ========== */
+.add-btn {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.add-btn:hover {
+    transform: scale(1.2);
+}
+
+/* ========== Rooms Overview ========== */
+.rooms-box {
+    max-width: 600px;
+    max-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.room-card {
+    flex: 45%;
+    max-width: 45%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+.room-card i {
+    font-size: 40px;
+    color: #6a1b9a;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.room-card span {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+.room-card .device-count {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.room-card:hover,
+.room-card:hover .device-count,
+.room-card:hover i {
+    transform: scale(1.05);
+    background-color: #6a1b9a;
+    color: white;
+}
+
+/* ========== Footer Navigation ========== */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.nav-bar a {
+    color: #888;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-bar a.active {
+    color: #6a1b9a;
+}
+
+/* ========== Room Detail ========== */
+.back-btn {
+    position: absolute;
+    top: 22px;
+    left: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #e0e0e0;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ========== Devices in Room ========== */
+.devices-box {
+    max-width: 600px;
+    max-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.device {
+    flex: 45%;
+    max-width: 45%;
+    position: relative;
+    padding: 40px 20px;
+    background-color: white;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 2px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.device i {
+    font-size: 28px;
+    color: #6a1b9a;
+    transition: color 0.3s;
+}
+
+.device h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+}
+
+.device p {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.device:hover {
+    transform: scale(1.06);
+    border-color: #6a1b9a;
+}
+
+/* ========== Modal Styles ========== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 90%;
+    width: 500px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close:hover {
+    color: #6a1b9a;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #6a1b9a;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-content input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.icon-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icon-selection label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon-selection i {
+    font-size: 24px;
+    color: #6a1b9a;
+    margin-bottom: 5px;
+}
+
+.icon-selection input[type="radio"] {
+    display: none;
+}
+
+.icon-selection input[type="radio"]:checked + i {
+    color: #5e1785;
+}
+
+.modal-content button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #5a1680;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .room-card,
+    .device {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

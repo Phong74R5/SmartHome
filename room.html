@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/switch.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/duotone.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/brands.css" />
+    <!-- Firebase SDK 8.10.1 -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Phòng</h1>
+        <a href="index.html" class="back-btn">← Quay Lại</a>
+        <button class="add-btn" onclick="openAddDeviceModal()">+</button>
+    </header>
+    <div class="devices-box" id="devicesBox">
+        <!-- Thiết bị sẽ được tải động từ Firebase -->
+    </div>
+    <!-- Modal thêm thiết bị -->
+    <div id="addDeviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddDeviceModal()">×</span>
+            <h2>Thêm Thiết Bị Mới</h2>
+            <form id="addDeviceForm">
+                <label for="deviceName">Tên Thiết Bị:</label>
+                <input type="text" id="deviceName" required>
+                <label for="deviceDescription">Mô Tả:</label>
+                <input type="text" id="deviceDescription" required>
+                <label>Chọn Biểu Tượng:</label>
+                <div class="icon-selection">
+                    <label><input type="radio" name="deviceIcon" value="fa-wifi" checked><i class="fa-solid fa-wifi"></i></label>
+                    <label><input type="radio" name="deviceIcon" value="fa-tv"><i class="fa-solid fa-tv"></i></label>
+                    <label><input type="radio" name="deviceIcon" value="fa-lightbulb"><i class="fa-solid fa-lightbulb"></i></label>
+                    <label><input type="radio" name="deviceIcon" value="fa-fan"><i class="fa-solid fa-fan"></i></label>
+                    <label><input type="radio" name="deviceIcon" value="fa-plug"><i class="fa-solid fa-plug"></i></label>
+                </div>
+                <button type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/firebase.js"></script>
+    <script src="./js/room.js"></script>
+</body>
+</html>
