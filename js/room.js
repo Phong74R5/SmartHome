@@ -26,6 +26,10 @@ function loadDevices() {
                        onchange="toggleDevice('${roomId}', this.dataset.id, this.checked)">
                 <span class="slider"></span>
             </label>
+            <label class="remove-button">
+                <i class="fas fa-trash-alt"></i>
+                <button style="display:none" type="button" onclick=removeDevice("${roomId}","${deviceId}")></button>
+            </label>
         `;
         devicesBox.appendChild(deviceCard);
     });

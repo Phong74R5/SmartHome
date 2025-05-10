@@ -8,18 +8,15 @@ const firebaseConfig = {
     appId: "1:560919138174:web:d86ee2f7402f9d65b26d2f"
 };
 
-// Khởi tạo Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-// Hàm cập nhật trạng thái thiết bị
 function toggleDevice(roomId, deviceId, status) {
     database.ref(`rooms/${roomId}/devices/${deviceId}`).update({
         status: status
     });
 }
 
-// Hàm thêm phòng mới
 function addRoom(name, icon) {
     const roomId = database.ref('rooms').push().key;
     database.ref(`rooms/${roomId}`).set({
@@ -29,7 +26,6 @@ function addRoom(name, icon) {
     });
 }
 
-// Hàm thêm thiết bị mới
 function addDevice(roomId, name, description, icon) {
     const deviceId = database.ref(`rooms/${roomId}/devices`).push().key;
     database.ref(`rooms/${roomId}/devices/${deviceId}`).set({
@@ -38,4 +34,18 @@ function addDevice(roomId, name, description, icon) {
         icon: icon,
         status: false
     });
+}
+
+function removeRoom(roomId){
+    database.ref(`rooms/${roomId}`).remove()
+    .then(() => {
+        location.reload();
+    })
+}
+
+function removeDevice(roomId, deviceId){
+    database.ref(`rooms/${roomId}/devices/${deviceId}`).remove()
+    .then(() =>{
+        location.reload();
+    })
 }

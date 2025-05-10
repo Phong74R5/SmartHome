@@ -19,14 +19,20 @@ function loadRooms() {
         roomCards[roomId] = room;
 
         const deviceCount = Object.keys(room.devices || {}).length;
-        const roomCard = document.createElement('a');
-        roomCard.href = `room.html?room=${room.name}&id=${roomId}`;
+        const roomCard = document.createElement('div');
+        // roomCard.href = `room.html?room=${room.name}&id=${roomId}`;
         roomCard.id = `room-${roomId}`;
         roomCard.className = `room-card`;
         roomCard.innerHTML = `
+            <a href="room.html?room=${room.name}&id=${roomId}">
             <i class="fa-solid ${room.icon || 'fa-bed-front'}"></i>
             <span>${room.name}</span>
             <span class="device-count">${deviceCount} thiết bị</span>
+            </a>
+            <label class="remove-button">
+            <i class="fas fa-trash-alt"></i>
+            <button style="display:none" type="button" onclick=removeRoom("${roomId}")></button>
+            </label>
         `;
         roomsBox.appendChild(roomCard);
 
