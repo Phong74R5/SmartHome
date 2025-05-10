@@ -30,7 +30,7 @@ function loadDevices() {
         devicesBox.appendChild(deviceCard);
     });
 
-    // Lắng nghe thay đổi trạng thái của thiết bị
+    //thay đổi trạng thái của thiết bị
     devicesRef.on('child_changed', (snapshot) => {
         const deviceId = snapshot.key;
         const device = snapshot.val();
