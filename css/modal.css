@@ -6,26 +6,31 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* From style.css (more opaque, matches image) */
+    overflow: auto; /* From modal.css */
+    justify-content: center; /* From style.css */
+    align-items: center; /* From style.css */
 }
 
 .modal-content {
     background-color: white;
-    margin: 15% auto;
-    padding: 20px;
+    margin: 15% auto; /* From modal.css for centering */
+    padding: 30px; /* From style.css (matches image) */
     border-radius: 15px;
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 500px; /* From style.css (matches image) */
+    max-width: 90%; /* From style.css */
+    position: relative; /* From style.css */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* From style.css (stronger shadow) */
 }
 
 .close {
-    color: #888;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute; /* From style.css */
+    top: 15px; /* From style.css */
+    right: 15px; /* From style.css */
+    font-size: 24px; /* From style.css (smaller, matches image) */
+    font-weight: bold; /* From modal.css */
     cursor: pointer;
+    color: #888;
 }
 
 .close:hover {
@@ -43,85 +48,84 @@
     gap: 15px;
 }
 
-.icon-selection {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.icon-selection label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.icon-selection i {
-    font-size: 24px;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.icon-selection label:hover {
-    background-color: #f3e5f5;
-    transform: scale(1.1);
-}
-
-.icon-selection label:hover i {
-    color: #6a1b9a;
-}
-
-.icon-selection input[type="radio"]:checked + i {
-    color: #6a1b9a;
-    transform: scale(1.5);
-}
-
-
 .modal-content label {
     font-weight: bold;
     color: #333;
 }
 
-.modal-content input {
+.modal-content input[type="text"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd; /* From style.css */
     border-radius: 5px;
     font-size: 16px;
+    width: 100%; /* From style.css */
+}
+
+.modal-content input {
+    padding: 10px;
+    border: 1px solid #ccc; /* From modal.css (fallback for other input types) */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.icon-selection {
+    display: flex;
+    flex-wrap: wrap; /* From style.css */
+    gap: 10px; /* From style.css */
+    justify-content: space-around; /* From modal.css */
+    margin-top: 10px; /* From style.css */
+    margin-bottom: 20px; /* From modal.css */
+}
+
+.icon-selection label {
+    display: flex;
+    flex-direction: column; /* From style.css */
+    align-items: center;
+    justify-content: center; /* From modal.css */
+    width: 50px; /* From modal.css */
+    height: 50px; /* From modal.css */
+    border-radius: 10px; /* From modal.css */
+    transition: all 0.3s ease; /* From modal.css */
+    cursor: pointer;
+}
+
+.icon-selection i {
+    font-size: 24px;
+    color: #6a1b9a; /* From style.css (matches image) */
+    margin-bottom: 5px; /* From style.css */
+    transition: color 0.3s ease; /* From modal.css */
+}
+
+.icon-selection label:hover {
+    background-color: #f3e5f5; /* From modal.css */
+    transform: scale(1.1); /* From modal.css */
+}
+
+.icon-selection label:hover i {
+    color: #6a1b9a; /* From modal.css */
+}
+
+.icon-selection input[type="radio"] {
+    display: none; /* From style.css */
+}
+
+.icon-selection input[type="radio"]:checked + i {
+    color: #5e1785; /* From style.css (darker purple, matches image) */
+    transform: scale(1.5); /* From modal.css */
 }
 
 .modal-content button {
-    padding: 10px;
     background-color: #6a1b9a;
     color: white;
     border: none;
+    padding: 12px 20px; /* From style.css (larger padding, matches image) */
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%; /* From style.css */
+    transition: background-color 0.3s; /* From style.css */
 }
 
 .modal-content button:hover {
-    background-color: #5e1785;
-}
-
-.add-btn {
-    position: absolute;
-    top: 22px;
-    right: 20px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background-color: #6a1b9a;
-    color: #e0e0e0;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.add-btn:hover {
-    transform: scale(1.1);
+    background-color: #5a1680; /* From style.css (slightly different shade) */
 }

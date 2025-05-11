@@ -6,7 +6,14 @@
 }
 
 body {
+    background-color: black;
+}
+
+.container {
     background-color: #f5f5f5;
+    margin: auto;
+    max-width: 50vh;
+    height: 100vh;
 }
 
 /* ========== Header ========== */
@@ -40,10 +47,14 @@ header h1 {
 
 /* ========== Add Button ========== */
 .add-btn {
-    background: none;
-    border: none;
-    color: #e0e0e0;
-    font-size: 24px;
+    background-color: #52dcb4;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s;
     position: absolute;
@@ -124,11 +135,11 @@ header h1 {
     right: 10px;
 }
 
-.remove-button i{
+.remove-button i {
     font-size: medium;
 }
 
-.remove-button:hover i{
+.remove-button:hover i {
     color: red;
 }
 
@@ -136,7 +147,7 @@ header h1 {
 footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 50vh;
     background-color: white;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -226,116 +237,19 @@ footer {
     border-color: #6a1b9a;
 }
 
-/* ========== Modal Styles ========== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
+@media (max-width: 600px) or (max-height: 800px) {
 
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 90%;
-    width: 500px;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #888;
-}
-
-.close:hover {
-    color: #6a1b9a;
-}
-
-.modal-content h2 {
-    margin-bottom: 20px;
-    color: #6a1b9a;
-}
-
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.modal-content label {
-    font-weight: bold;
-    color: #333;
-}
-
-.modal-content input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-}
-
-.icon-selection {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.icon-selection label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-
-.icon-selection i {
-    font-size: 24px;
-    color: #6a1b9a;
-    margin-bottom: 5px;
-}
-
-.icon-selection input[type="radio"] {
-    display: none;
-}
-
-.icon-selection input[type="radio"]:checked + i {
-    color: #5e1785;
-}
-
-.modal-content button {
-    background-color: #6a1b9a;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-.modal-content button:hover {
-    background-color: #5a1680;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
     .room-card,
     .device {
         flex: 100%;
         max-width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    footer {
+        width: 100%;
     }
 }
