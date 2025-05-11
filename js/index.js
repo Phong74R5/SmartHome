@@ -20,7 +20,6 @@ function loadRooms() {
 
         const deviceCount = Object.keys(room.devices || {}).length;
         const roomCard = document.createElement('div');
-        // roomCard.href = `room.html?room=${room.name}&id=${roomId}`;
         roomCard.id = `room-${roomId}`;
         roomCard.className = `room-card`;
         roomCard.innerHTML = `
@@ -56,6 +55,20 @@ function loadRooms() {
 
         updateTotalDeviceCount();
     });
+
+    roomsRef.on('child_removed', (snapshot) => {
+        const roomId = snapshot.key;
+        delete roomCards[roomId];
+
+        const roomCard = document.getElementById(`room-${roomId}`);
+        if (roomCard) {
+            roomCard.remove();
+        }
+        
+        updateTotalDeviceCount();
+    });
+
+
 }
 
 // Xử lý modal thêm phòng

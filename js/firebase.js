@@ -37,15 +37,17 @@ function addDevice(roomId, name, description, icon) {
 }
 
 function removeRoom(roomId){
-    database.ref(`rooms/${roomId}`).remove()
-    .then(() => {
-        location.reload();
-    })
+    database.ref(`rooms/${roomId}`).remove();
+    delRoom = document.getElementById(`room-${roomId}`);
+    if(delRoom){
+        delRoom.remove();
+    }
 }
 
 function removeDevice(roomId, deviceId){
-    database.ref(`rooms/${roomId}/devices/${deviceId}`).remove()
-    .then(() =>{
-        location.reload();
-    })
+    database.ref(`rooms/${roomId}/devices/${deviceId}`).remove();
+    delDevice = document.getElementById(`device-${deviceId}`);
+    if(delDevice){
+        delDevice.remove();
+    }
 }

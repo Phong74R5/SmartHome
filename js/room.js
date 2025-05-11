@@ -46,6 +46,17 @@ function loadDevices() {
             }
         }
     });
+
+    devicesRef.on('child_removed', (snapshot) => {
+        const deviceId = snapshot.key;
+        
+        const deviceCard = document.getElementById(`device-${deviceId}`);
+        if (deviceCard) {
+            deviceCard.remove();
+        }
+        
+        updateTotalDeviceCount();
+    });
 }
 
 // Xử lý modal thêm thiết bị
