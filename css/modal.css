@@ -105,12 +105,12 @@
     color: #6a1b9a;
 }
 
-.icon-selection input[type="radio"] {
+.icon-selection input {
     display: none;
 }
 
-.icon-selection input[type="radio"]:checked+i {
-    color: #5e1785;
+.icon-selection input:checked+i {
+    color: greenyellow;
     transform: scale(1.5);
 }
 
