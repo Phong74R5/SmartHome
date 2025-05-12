@@ -51,3 +51,13 @@ function removeDevice(roomId, deviceId){
         delDevice.remove();
     }
 }
+
+const envRef = firebase.database().ref('environment');
+
+envRef.on('value', (snapshot) => {
+  const data = snapshot.val();
+  if (data) {
+    document.getElementById('temperatureValue').innerText = `${data.temperature}°C`;
+    document.getElementById('humidityValue').innerText = `${data.humidity}%`;
+  }
+});
