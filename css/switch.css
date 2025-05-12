@@ -59,3 +59,7 @@ input:checked + .slider::after {
 .device:hover .slider {
     box-shadow: 0 0 5px rgba(106, 27, 154, 0.5);
 }
+
+.device:has(input:checked) {
+    border-color: greenyellow;
+}
